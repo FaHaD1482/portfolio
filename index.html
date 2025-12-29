@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comforter+Brush&display=swap" rel="stylesheet">
 </head>
+
 <body>
     <!-- Header Section -->
     <header>
@@ -30,8 +32,9 @@
         <div class="hero" id="home">
             <div class="hero-content">
                 <h1>Fahad Bin Z Islam</h1>
-                <p>Computer Science Student | Web Developer | Problem Solver</p>
-                <a href="CV/Fahad_Bin_Z_Islam_CV.pdf" download class="btn">Download CV</a>
+                <p>Computer Science Student | Web Dev Enthusiast | Problem Solver</p>
+                <a href="https://github.com/FaHaD1482/portfolio/blob/main/CV/Fahad_Bin_Z_Islam_CV.pdf" download
+                    class="btn">Download CV</a>
             </div>
             <div class="hero-image">
                 <img src="images/profile.png" alt="Fahad's Profile">
@@ -41,121 +44,236 @@
 
     <!-- About Me Section -->
     <section id="about" class="section">
-        <h2>About Me</h2>
-        <p>I am a passionate and hard-working Computer Science student at AIUB with a strong foundation in coding, problem-solving, and software development. Experienced in building real-world projects using PHP (Laravel), Java, C#, HTML, CSS, and JavaScript, I aim to become a Backend Software Engineer while contributing as a skilled Web Developer.</p>
+        <div class="container section-wrapper">
+            <h2>About Me</h2>
+            <p>I am a passionate and hard-working Computer Science student at AIUB with a strong foundation in coding,
+                problem-solving, and software development. Experienced in building real-world projects using PHP,
+                Java, C#, HTML, CSS, and JavaScript, I aim to become a Backend Software Engineer while contributing as a
+                skilled Web Developer. I am also a team player and enjoy working in a collaborative environment.</p>
+        </div>
     </section>
 
     <!-- Skills Section -->
     <section id="skills" class="section">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <span><i class="fab fa-php"></i> PHP (Laravel)</span>
-            <span><i class="fab fa-java"></i> Java</span>
-            <span><i class="fab fa-microsoft"></i> C#</span>
-            <span><i class="fab fa-html5"></i> HTML5</span>
-            <span><i class="fab fa-css3-alt"></i> CSS3</span>
-            <span><i class="fab fa-js"></i> JavaScript</span>
-            <span><i class="fas fa-database"></i> MySQL</span>
-            <span><i class="fas fa-code"></i> REST APIs</span>
-            <span><i class="fab fa-git-alt"></i> Git</span>
-            <span><i class="fab fa-bootstrap"></i> Bootstrap</span>
-            <span><i class="fas fa-exchange-alt"></i> AJAX</span>
-            <span><i class="fas fa-file-code"></i> JSON</span>
-            <span><i class="fab fa-vuejs"></i> Vue.js (Basic)</span>
-            <span><i class="fas fa-bolt"></i> Livewire (Basic)</span>
+        <div class="container section-wrapper">
+            <h2>Skills</h2>
+
+            <div class="skill-category">
+                <h3>Programming Languages</h3>
+                <div class="skills-grid">
+                    <span><i class="fab fa-java"></i> Java</span>
+                    <span><i class="fab fa-microsoft"></i> C#</span>
+                    <span><i class="fab fa-php"></i> PHP</span>
+                    <span><i class="fab fa-js"></i> JavaScript</span>
+                    <span><i class="fab fa-html5"></i> HTML5</span>
+                    <span><i class="fab fa-css3-alt"></i> CSS3</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Frameworks & Libraries</h3>
+                <div class="skills-grid">
+                    <span><i class="fab fa-react"></i> React.js (Basic)</span>
+                    <span><i class="fab fa-bootstrap"></i> Bootstrap</span>
+                    <span><i class="fab fa-css3"></i> Tailwind CSS</span>
+                    <span><i class="fab fa-node"></i> Node JS</span>
+                    <span><i class="fas fa-file-code"></i> Express JS</span>
+                </div>
+            </div>
+
+            <div class="skill-category">
+                <h3>Tools & Technologies</h3>
+                <div class="skills-grid">
+                    <span><i class="fas fa-database"></i> MySQL</span>
+                    <span><i class="fab fa-git-alt"></i> Git</span>
+                    <span><i class="fas fa-file-code"></i> MongoDB</span>
+                    <span><i class="fab fa-github"></i> Github</span>
+                    <span><i class="fas fa-code"></i> REST APIs</span>
+                    <span><i class="fas fa-exchange-alt"></i> AJAX</span>
+                    <span><i class="fas fa-file-code"></i> JSON</span>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Projects Section -->
     <section id="projects" class="section">
-        <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card">
-                <img src="https://plus.unsplash.com/premium_vector-1720891748910-34dc259dee9a?q=80&w=800" alt="Library Management System">
-                <div class="project-info">
-                    <h3>Library Management System</h3>
-                    <p>A Java-based desktop application with full CRUD operations for managing library resources.</p>
-                    <a href="https://github.com/sample/library-system" target="_blank" class="btn">View Source</a>
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="images/bonsai.png" alt="Resort Website">
+                    <div class="project-info">
+                        <h3>Resort Website | Wordpress (in production)</h3>
+                        <div class="project-tech">
+                            <span>Wordpress</span>
+                            <span>Elementor</span>
+                            <span>Custom Theme</span>
+                            <span>Custom Code</span>
+                        </div>
+                        <p>A wordpress website for a resort in Srimongal, Bangladesh. Currently in production.Built
+                            using wordpress, elementor, theme (customization from scratch), and implemented some custom
+                            code according to the requirements.
+                        </p>
+                        <a href="https://bonsaiecovillage.com" target="_blank" class="btn">Visit Website</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="images/finance-tracker.png" alt="Finance Tracker">
+                    <div class="project-info">
+                        <h3>Finance Tracker</h3>
+                        <div class="project-tech">
+                            <span>React (Vite)</span>
+                            <span>Express.js</span>
+                            <span>Firebase</span>
+                            <span>Tailwind CSS</span>
+                            <span>Monorepo</span>
+                            <span>Firestore</span>
+                        </div>
+                        <p>Developed a full-stack personal finance dashboard using React (Vite) for the frontend and
+                            Express.js (Node.js) for the backend in a monorepo structure. Implemented user
+                            authentication with Firebase Authentication (email/password) and secure token-based API
+                            protection using Firebase Admin SDK.
+                        </p>
+                        <a href="https://github.com/FaHaD1482/Expense-Tracker" target="_blank" class="btn">Github
+                            Repo</a>
+                        <a href="https://expense-tracker-roan-seven.vercel.app/" target="_blank" class="btn">Live
+                            Site</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="images/e-shop.png" alt="E-Commerce Application">
+                    <div class="project-info">
+                        <h3>E-Commerce Application</h3>
+                        <div class="project-tech">
+                            <span>C#</span>
+                            <span>Guna UI</span>
+                            <span>n-Tier Architecture</span>
+                            <span>Microsoft SQL</span>
+                            <span>UI Components</span>
+                        </div>
+                        <p>Built a Windows desktop e-commerce application using C# and GUNA UI library for modern
+                            interface design, handling user roles with distinct functionalities for administration,
+                            operations, and shopping Implemented role-based functionalities, CRUD operations for all
+                            users according to their roles.</p>
+                        <a href="https://github.com/FaHaD1482/E-Shop" target="_blank" class="btn">View Source</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://plus.unsplash.com/premium_vector-1720891748910-34dc259dee9a?q=80&w=800"
+                        alt="Library Management System">
+                    <div class="project-info">
+                        <h3>Library Management System</h3>
+                        <div class="project-tech">
+                            <span>Java</span>
+                            <span>MySQL</span>
+                            <span>JavaFX</span>
+                        </div>
+                        <p>A Basic Java-based desktop application with full CRUD operations for managing library
+                            resources.
+                        </p>
+                        <a href="https://github.com/FaHaD1482/Library_Management_Java" target="_blank" class="btn">View
+                            Source</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://plus.unsplash.com/premium_vector-1730125283006-8ec610771dff?q=80&w=800"
+                        alt="Travel Agency Website">
+                    <div class="project-info">
+                        <h3>Travel Agency Website</h3>
+                        <div class="project-tech">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <span>PHP</span>
+                        </div>
+                        <p>A fully responsive website built with HTML, CSS, JavaScript, and PHP for booking travel
+                            packages.
+                        </p>
+                        <a href="https://github.com/FaHaD1482/WebTech" target="_blank" class="btn">View Source</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="https://raw.githubusercontent.com/FaHaD1482/prison-management/refs/heads/main/Images/4.png"
+                        alt="Prison Management Database">
+                    <div class="project-info">
+                        <h3>Prison Management Database</h3>
+                        <div class="project-tech">
+                            <span>MySQL</span>
+                            <span>PHP</span>
+                            <span>HTML</span>
+                            <span>CSS</span>
+                        </div>
+                        <p>A MySQL and web based system for prison management with secure authentication and CRUD
+                            operations for managing prison resources.</p>
+                        <a href="https://github.com/FaHaD1482/prison-management" target="_blank" class="btn">View
+                            Source</a>
+                    </div>
                 </div>
             </div>
-            <div class="project-card">
-                <img src="https://plus.unsplash.com/premium_vector-1730125283006-8ec610771dff?q=80&w=800" alt="Travel Agency Website">
-                <div class="project-info">
-                    <h3>Travel Agency Website</h3>
-                    <p>A fully responsive website built with HTML, CSS, JavaScript, and PHP for booking travel packages.</p>
-                    <a href="https://github.com/FaHaD1482/WebTech" target="_blank" class="btn">View Source</a>
-                    <a href="https:www.bonsaiecovillage.com" target="_blank" class="btn">Live Site</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://camo.githubusercontent.com/2f588e07ec23febff96d345f7e34c801b7179f7266573d3ab3346d55d23e26a4/68747470733a2f2f692e6962622e636f2f667657435832662f53637265656e73686f742d323032342d30312d30322d3232333233352e706e67" alt="E-Commerce Application">
-                <div class="project-info">
-                    <h3>E-Commerce Application</h3>
-                    <p>A C#-based application with shopping cart and order management features.</p>
-                    <a href="https://github.com/FaHaD1482/E-Shop" target="_blank" class="btn">View Source</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <img src="https://plus.unsplash.com/premium_vector-1723435186707-4ffb5ae9e1ad?q=80&w=800" alt="Inventory Management Database">
-                <div class="project-info">
-                    <h3>Inventory Management Database</h3>
-                    <p>A MySQL-based system for efficient inventory tracking and management.</p>
-                    <a href="https://github.com/sample/inventory-system" target="_blank" class="btn">View Source</a>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Educational Qualifications Section -->
     <section id="education" class="section">
-        <h2>Educational Qualifications</h2>
-        <div class="education-grid">
-            <div class="education-card">
-                <h3>BSc in Computer Science and Engineering</h3>
-                <p>American International University-Bangladesh (AIUB)</p>
-                <p>January 2022 – Present</p>
-            </div>
-            <div class="education-card">
-                <h3>Higher Secondary Certificate (HSC)</h3>
-                <p>BN College, Dhaka</p>
-                <p>Completed 2020 | GPA: 5.00</p>
-            </div>
-            <div class="education-card">
-                <h3>Secondary School Certificate (SSC)</h3>
-                <p>Adamjee Cantonment Public School, Dhaka</p>
-                <p>Completed 2018 | GPA: 5.00</p>
+        <div class="container">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <div class="project-tech">
+                        <span>2022 – 2025</span>
+                    </div>
+                    <h3>BSc in Computer Science and Engineering</h3>
+                    <p>American International University-Bangladesh (AIUB)</p>
+                </div>
+                <div class="education-card">
+                    <div class="project-tech">
+                        <span>Completed - 2020</span>
+                    </div>
+                    <h3>Higher Secondary Certificate (HSC)</h3>
+                    <p>BN College, Dhaka</p>
+                </div>
+                <div class="education-card">
+                    <div class="project-tech">
+                        <span>Completed - 2018</span>
+                    </div>
+                    <h3>Secondary School Certificate (SSC)</h3>
+                    <p>Adamjee Cantonment Public School, Dhaka</p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Me Form Section -->
     <section id="contact" class="section">
-        <h2>Contact Me</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+        <div class="container section-wrapper">
+            <h2>Contact Me</h2>
+            <form class="contact-form" action="https://formspree.io/f/mgoedkya" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+            <div class="contact-info">
+                <p><i class="fas fa-envelope"></i> fahadbin.zislam@gmail.com</p>
+                <p><i class="fas fa-phone"></i> (+880) 1568177676</p>
+                <p><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
             </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+            <div class="social-links">
+                <a href="https://github.com/FaHaD1482/FaHaD1482" target="_blank" title="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/fahad-bin-z-islam-590332202/" target="_blank" title="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://x.com/AnonDhwale" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
             </div>
-            <div class="form-group">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="btn">Send Message</button>
-        </form>
-        <div class="contact-info">
-            <p><i class="fas fa-envelope"></i> fahadbin.zislam@gmail.com</p>
-            <p><i class="fas fa-phone"></i> +880 1563786347</p>
-            <p><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
-        </div>
-        <div class="social-links">
-            <a href="https://github.com/FaHaD1482/FaHaD1482" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
-            <a href="https://www.linkedin.com/in/fahad-bin-z-islam-590332202/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://x.com/FahadBinZislam" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
-        </div>
     </section>
 
     <!-- Footer -->
@@ -165,4 +283,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
