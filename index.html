@@ -6,7 +6,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="images/icon.png" />
     <title>Fahad Bin Z Islam - Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        body: '#0f172a',
+                        card: 'rgba(30, 41, 59, 0.6)',
+                        'card-hover': 'rgba(51, 65, 85, 0.6)',
+                        accent: {
+                            DEFAULT: '#38bdf8',
+                            glow: 'rgba(56, 189, 248, 0.3)',
+                            hover: '#0ea5e9'
+                        },
+                        border: 'rgba(255, 255, 255, 0.05)',
+                        text: {
+                            primary: '#f8fafc',
+                            secondary: '#94a3b8',
+                            muted: '#64748b',
+                        },
+                        highlight: 'rgba(56, 189, 248, 0.1)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        handwriting: ['"Comforter Brush"', 'cursive'],
+                    },
+                    animation: {
+                        float: 'float 6s ease-in-out infinite',
+                        'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-15px)' },
+                        },
+                        fadeInUp: {
+                            'from': { opacity: '0', transform: 'translateY(20px)' },
+                            'to': { opacity: '1', transform: 'translateY(0)' },
+                        }
+                    },
+                    backgroundImage: {
+                        'hero-radial': 'radial-gradient(circle at top center, #1e293b 0%, #0f172a 70%)',
+                        'hero-overlay': 'radial-gradient(circle at 50% 50%, rgba(56, 189, 248, 0.05), transparent 60%)',
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+        body {
+          @apply bg-body text-text-primary overflow-x-hidden leading-relaxed;
+        }
+        h1, h2, h3, h4, h5, h6 {
+          @apply font-bold;
+        }
+      }
+      @layer components {
+        .btn {
+          @apply inline-block px-[30px] py-3 bg-accent text-body no-underline rounded-lg font-semibold transition-all duration-300 hover:bg-accent-hover hover:-translate-y-[2px] hover:shadow-[0_0_20px_var(--accent-glow)];
+        }
+        .section { @apply py-20 px-5 text-center; }
+        .container { @apply max-w-[1200px] mx-auto w-full; }
+        .section-wrapper { @apply bg-card border border-border rounded-xl py-[60px] px-10 backdrop-blur-[10px]; }
+        .project-card { @apply bg-card border border-border rounded-xl overflow-hidden transition-all duration-500 ease-in-out hover:-translate-y-2 hover:border-accent hover:shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]; }
+      }
+      @layer utilities {
+         .navbar.scrolled {
+             @apply bg-[#0c1323cc] shadow-md;
+         }
+      }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,29 +87,52 @@
 <body>
     <!-- Header Section -->
     <header>
-        <nav class="navbar">
-            <div class="logo">Fahad</div>
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About Me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
+        <nav
+            class="navbar flex justify-between items-center px-5 py-5 md:px-[50px] bg-slate-900/80 backdrop-blur-md border-b border-border fixed w-full top-0 z-[1000] transition-all duration-300 [&.scrolled]:bg-[#0c1323cc] [&.scrolled]:shadow-sm">
+            <div
+                class="logo text-3xl font-bold bg-gradient-to-r from-sky-400 to-indigo-400 bg-clip-text text-transparent font-handwriting">
+                Fahad</div>
+            <ul
+                class="nav-links hidden md:flex flex-col md:flex-row gap-[30px] absolute md:static top-[70px] left-0 w-full md:w-auto bg-body md:bg-transparent p-5 md:p-0 border-b md:border-none border-border [&.active]:flex list-none">
+                <li><a href="#home"
+                        class="text-text-secondary no-underline text-base font-medium transition-colors duration-300 hover:text-accent">Home</a>
+                </li>
+                <li><a href="#about"
+                        class="text-text-secondary no-underline text-base font-medium transition-colors duration-300 hover:text-accent">About
+                        Me</a></li>
+                <li><a href="#skills"
+                        class="text-text-secondary no-underline text-base font-medium transition-colors duration-300 hover:text-accent">Skills</a>
+                </li>
+                <li><a href="#projects"
+                        class="text-text-secondary no-underline text-base font-medium transition-colors duration-300 hover:text-accent">Projects</a>
+                </li>
+                <li><a href="#education"
+                        class="text-text-secondary no-underline text-base font-medium transition-colors duration-300 hover:text-accent">Education</a>
+                </li>
+                <li><a href="#contact"
+                        class="text-text-secondary no-underline text-base font-medium transition-colors duration-300 hover:text-accent">Contact</a>
+                </li>
             </ul>
-            <div class="hamburger">
+            <div class="hamburger block md:hidden text-2xl cursor-pointer text-text-primary">
                 <i class="fas fa-bars"></i>
             </div>
         </nav>
-        <div class="hero" id="home">
-            <div class="hero-content">
-                <h1>Fahad Bin Z Islam</h1>
-                <p>Computer Science Student | Web Dev Enthusiast | Problem Solver</p>
+        <div class="hero flex flex-col md:flex-row items-center justify-between min-h-screen pt-[120px] pb-20 px-5 md:px-[50px] bg-hero-radial relative"
+            id="home">
+            <div class="absolute inset-0 bg-hero-overlay pointer-events-none"></div>
+            <div
+                class="hero-content w-full md:max-w-[55%] z-10 text-center md:text-left mb-10 md:mb-0 animate-fade-in-up">
+                <h1
+                    class="text-4xl md:text-[3.5rem] font-extrabold mb-5 bg-gradient-to-r from-slate-50 to-slate-400 bg-clip-text text-transparent leading-tight">
+                    Fahad Bin Z Islam</h1>
+                <p class="text-xl mb-[30px] text-text-secondary">Computer Science Student | Web Dev Enthusiast | Problem
+                    Solver</p>
                 <a href="https://github.com/FaHaD1482/portfolio/blob/main/CV/Fahad%20Bin%20Z%20Islam_CV.pdf" download
                     class="btn" target="_blank">Download CV</a>
             </div>
-            <div class="hero-image">
-                <img src="images/profile.png" alt="Fahad's Profile">
+            <div class="hero-image z-10">
+                <img src="images/profile.png" alt="Fahad's Profile"
+                    class="w-[280px] h-[280px] md:w-[380px] md:h-[380px] rounded-full object-cover border-4 border-highlight shadow-[0_0_50px_rgba(56,189,248,0.1)] animate-float">
             </div>
         </div>
     </header>
@@ -46,8 +140,9 @@
     <!-- About Me Section -->
     <section id="about" class="section">
         <div class="container section-wrapper">
-            <h2>About Me</h2>
-            <p>I am a passionate and hard-working Computer Science student at AIUB with a strong foundation in coding,
+            <h2 class="text-[2.5rem] mb-[50px] text-text-primary font-bold">About Me</h2>
+            <p class="max-w-[800px] mx-auto text-lg leading-loose text-text-secondary">I am a passionate and
+                hard-working Computer Science student at AIUB with a strong foundation in coding,
                 problem-solving, and software development. Experienced in building real-world projects using PHP,
                 Java, C#, HTML, CSS, and JavaScript, I aim to become a Backend Software Engineer while contributing as a
                 skilled Web Developer. I am also a team player and enjoy working in a collaborative environment.</p>
@@ -57,41 +152,82 @@
     <!-- Skills Section -->
     <section id="skills" class="section">
         <div class="container section-wrapper">
-            <h2>Skills</h2>
+            <h2 class="text-[2.5rem] mb-[50px] text-text-primary font-bold">Skills</h2>
 
-            <div class="skill-category">
-                <h3>Programming Languages</h3>
-                <div class="skills-grid">
-                    <span><i class="fab fa-java"></i> Java</span>
-                    <span><i class="fab fa-microsoft"></i> C#</span>
-                    <span><i class="fab fa-php"></i> PHP</span>
-                    <span><i class="fab fa-js"></i> JavaScript</span>
-                    <span><i class="fab fa-html5"></i> HTML5</span>
-                    <span><i class="fab fa-css3-alt"></i> CSS3</span>
+            <div
+                class="skill-category bg-card border border-border rounded-xl p-[30px] mb-[30px] text-left transition-transform duration-300 hover:border-sky-400/20">
+                <h3 class="text-2xl text-text-primary mb-[25px] border-b border-border pb-2.5">Programming Languages
+                </h3>
+                <div class="skills-grid flex flex-wrap gap-[15px]">
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-java mr-2 text-[1.1rem] text-accent"></i> Java</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-microsoft mr-2 text-[1.1rem] text-accent"></i> C#</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-php mr-2 text-[1.1rem] text-accent"></i> PHP</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-js mr-2 text-[1.1rem] text-accent"></i> JavaScript</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-html5 mr-2 text-[1.1rem] text-accent"></i> HTML5</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-css3-alt mr-2 text-[1.1rem] text-accent"></i> CSS3</span>
                 </div>
             </div>
 
-            <div class="skill-category">
-                <h3>Frameworks & Libraries</h3>
-                <div class="skills-grid">
-                    <span><i class="fab fa-react"></i> React.js (Basic)</span>
-                    <span><i class="fab fa-bootstrap"></i> Bootstrap</span>
-                    <span><i class="fab fa-css3"></i> Tailwind CSS</span>
-                    <span><i class="fab fa-node"></i> Node JS</span>
-                    <span><i class="fas fa-file-code"></i> Express JS</span>
+            <div
+                class="skill-category bg-card border border-border rounded-xl p-[30px] mb-[30px] text-left transition-transform duration-300 hover:border-sky-400/20">
+                <h3 class="text-2xl text-text-primary mb-[25px] border-b border-border pb-2.5">Frameworks & Libraries
+                </h3>
+                <div class="skills-grid flex flex-wrap gap-[15px]">
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-react mr-2 text-[1.1rem] text-accent"></i> React.js (Basic)</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-bootstrap mr-2 text-[1.1rem] text-accent"></i> Bootstrap</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-css3 mr-2 text-[1.1rem] text-accent"></i> Tailwind CSS</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-node mr-2 text-[1.1rem] text-accent"></i> Node JS</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fas fa-file-code mr-2 text-[1.1rem] text-accent"></i> Express JS</span>
                 </div>
             </div>
 
-            <div class="skill-category">
-                <h3>Tools & Technologies</h3>
-                <div class="skills-grid">
-                    <span><i class="fas fa-database"></i> MySQL</span>
-                    <span><i class="fab fa-git-alt"></i> Git</span>
-                    <span><i class="fas fa-file-code"></i> MongoDB</span>
-                    <span><i class="fab fa-github"></i> Github</span>
-                    <span><i class="fas fa-code"></i> REST APIs</span>
-                    <span><i class="fas fa-exchange-alt"></i> AJAX</span>
-                    <span><i class="fas fa-file-code"></i> JSON</span>
+            <div
+                class="skill-category bg-card border border-border rounded-xl p-[30px] mb-[30px] text-left transition-transform duration-300 hover:border-sky-400/20">
+                <h3 class="text-2xl text-text-primary mb-[25px] border-b border-border pb-2.5">Tools & Technologies</h3>
+                <div class="skills-grid flex flex-wrap gap-[15px]">
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fas fa-database mr-2 text-[1.1rem] text-accent"></i> MySQL</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-git-alt mr-2 text-[1.1rem] text-accent"></i> Git</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fas fa-file-code mr-2 text-[1.1rem] text-accent"></i> MongoDB</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fab fa-github mr-2 text-[1.1rem] text-accent"></i> Github</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fas fa-code mr-2 text-[1.1rem] text-accent"></i> REST APIs</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fas fa-exchange-alt mr-2 text-[1.1rem] text-accent"></i> AJAX</span>
+                    <span
+                        class="flex items-center bg-slate-900/60 border border-border text-text-secondary px-4 py-2 rounded-md text-[0.95rem] font-medium transition-all duration-300 hover:-translate-y-[3px] hover:bg-card-hover hover:text-text-primary hover:border-accent"><i
+                            class="fas fa-file-code mr-2 text-[1.1rem] text-accent"></i> JSON</span>
                 </div>
             </div>
         </div>
@@ -100,38 +236,56 @@
     <!-- Projects Section -->
     <section id="projects" class="section">
         <div class="container">
-            <h2>Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <img src="images/bonsai.png" alt="Resort Website">
-                    <div class="project-info">
-                        <h3>Resort Website | Wordpress (in production)</h3>
-                        <div class="project-tech">
-                            <span>Wordpress</span>
-                            <span>Elementor</span>
-                            <span>Custom Theme</span>
-                            <span>Custom Code</span>
+            <h2 class="text-[2.5rem] mb-[50px] text-text-primary font-bold">Projects</h2>
+            <div class="projects-grid grid grid-cols-[repeat(auto-fit,minmax(320px,1fr))] gap-[30px]">
+                <div class="project-card group">
+                    <img src="images/bonsai.png" alt="Resort Website"
+                        class="w-full h-[220px] object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+                    <div class="project-info p-[25px] text-center">
+                        <h3 class="text-xl mb-2.5 text-text-primary">Resort Website | Wordpress (in production)</h3>
+                        <div class="project-tech flex flex-wrap justify-center gap-2.5 mb-5">
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Wordpress</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Elementor</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Custom
+                                Theme</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Custom
+                                Code</span>
                         </div>
-                        <p>A wordpress website for a resort in Srimongal, Bangladesh. Currently in production.Built
+                        <p class="text-[0.95rem] mb-5 text-text-muted">A wordpress website for a resort in Srimongal,
+                            Bangladesh. Currently in production.Built
                             using wordpress, elementor, theme (customization from scratch), and implemented some custom
                             code according to the requirements.
                         </p>
                         <a href="https://bonsaiecovillage.com" target="_blank" class="btn">Visit Website</a>
                     </div>
                 </div>
-                <div class="project-card">
-                    <img src="images/finance-tracker.png" alt="Finance Tracker">
-                    <div class="project-info">
-                        <h3>Finance Tracker</h3>
-                        <div class="project-tech">
-                            <span>React (Vite)</span>
-                            <span>Express.js</span>
-                            <span>Firebase</span>
-                            <span>Tailwind CSS</span>
-                            <span>Monorepo</span>
-                            <span>Firestore</span>
+                <div class="project-card group">
+                    <img src="images/finance-tracker.png" alt="Finance Tracker"
+                        class="w-full h-[220px] object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+                    <div class="project-info p-[25px] text-center">
+                        <h3 class="text-xl mb-2.5 text-text-primary">Finance Tracker</h3>
+                        <div class="project-tech flex flex-wrap justify-center gap-2.5 mb-5">
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">React
+                                (Vite)</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Express.js</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Firebase</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Tailwind
+                                CSS</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Monorepo</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Firestore</span>
                         </div>
-                        <p>Developed a full-stack personal finance dashboard using React (Vite) for the frontend and
+                        <p class="text-[0.95rem] mb-5 text-text-muted">Developed a full-stack personal finance dashboard
+                            using React (Vite) for the frontend and
                             Express.js (Node.js) for the backend in a monorepo structure. Implemented user
                             authentication with Firebase Authentication (email/password) and secure token-based API
                             protection using Firebase Admin SDK.
@@ -142,70 +296,98 @@
                             Site</a>
                     </div>
                 </div>
-                <div class="project-card">
-                    <img src="images/e-shop.png" alt="E-Commerce Application">
-                    <div class="project-info">
-                        <h3>E-Commerce Application</h3>
-                        <div class="project-tech">
-                            <span>C#</span>
-                            <span>Guna UI</span>
-                            <span>n-Tier Architecture</span>
-                            <span>Microsoft SQL</span>
-                            <span>UI Components</span>
+                <div class="project-card group">
+                    <img src="images/e-shop.png" alt="E-Commerce Application"
+                        class="w-full h-[220px] object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+                    <div class="project-info p-[25px] text-center">
+                        <h3 class="text-xl mb-2.5 text-text-primary">E-Commerce Application</h3>
+                        <div class="project-tech flex flex-wrap justify-center gap-2.5 mb-5">
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">C#</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Guna
+                                UI</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">n-Tier
+                                Architecture</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Microsoft
+                                SQL</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">UI
+                                Components</span>
                         </div>
-                        <p>Built a Windows desktop e-commerce application using C# and GUNA UI library for modern
+                        <p class="text-[0.95rem] mb-5 text-text-muted">Built a Windows desktop e-commerce application
+                            using C# and GUNA UI library for modern
                             interface design, handling user roles with distinct functionalities for administration,
                             operations, and shopping Implemented role-based functionalities, CRUD operations for all
                             users according to their roles.</p>
                         <a href="https://github.com/FaHaD1482/E-Shop" target="_blank" class="btn">View Source</a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card group">
                     <img src="https://plus.unsplash.com/premium_vector-1720891748910-34dc259dee9a?q=80&w=800"
-                        alt="Library Management System">
-                    <div class="project-info">
-                        <h3>Library Management System</h3>
-                        <div class="project-tech">
-                            <span>Java</span>
-                            <span>MySQL</span>
-                            <span>JavaFX</span>
+                        alt="Library Management System"
+                        class="w-full h-[220px] object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+                    <div class="project-info p-[25px] text-center">
+                        <h3 class="text-xl mb-2.5 text-text-primary">Library Management System</h3>
+                        <div class="project-tech flex flex-wrap justify-center gap-2.5 mb-5">
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Java</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">MySQL</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">JavaFX</span>
                         </div>
-                        <p>A Basic Java-based desktop application with full CRUD operations for managing library
+                        <p class="text-[0.95rem] mb-5 text-text-muted">A Basic Java-based desktop application with full
+                            CRUD operations for managing library
                             resources.
                         </p>
                         <a href="https://github.com/FaHaD1482/Library_Management_Java" target="_blank" class="btn">View
                             Source</a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card group">
                     <img src="https://plus.unsplash.com/premium_vector-1730125283006-8ec610771dff?q=80&w=800"
-                        alt="Travel Agency Website">
-                    <div class="project-info">
-                        <h3>Travel Agency Website</h3>
-                        <div class="project-tech">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>PHP</span>
+                        alt="Travel Agency Website"
+                        class="w-full h-[220px] object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+                    <div class="project-info p-[25px] text-center">
+                        <h3 class="text-xl mb-2.5 text-text-primary">Travel Agency Website</h3>
+                        <div class="project-tech flex flex-wrap justify-center gap-2.5 mb-5">
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">HTML</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">CSS</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">JavaScript</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">PHP</span>
                         </div>
-                        <p>A fully responsive website built with HTML, CSS, JavaScript, and PHP for booking travel
+                        <p class="text-[0.95rem] mb-5 text-text-muted">A fully responsive website built with HTML, CSS,
+                            JavaScript, and PHP for booking travel
                             packages.
                         </p>
                         <a href="https://github.com/FaHaD1482/WebTech" target="_blank" class="btn">View Source</a>
                     </div>
                 </div>
-                <div class="project-card">
+                <div class="project-card group">
                     <img src="https://raw.githubusercontent.com/FaHaD1482/prison-management/refs/heads/main/Images/4.png"
-                        alt="Prison Management Database">
-                    <div class="project-info">
-                        <h3>Prison Management Database</h3>
-                        <div class="project-tech">
-                            <span>MySQL</span>
-                            <span>PHP</span>
-                            <span>HTML</span>
-                            <span>CSS</span>
+                        alt="Prison Management Database"
+                        class="w-full h-[220px] object-cover opacity-80 transition-opacity duration-300 group-hover:opacity-100">
+                    <div class="project-info p-[25px] text-center">
+                        <h3 class="text-xl mb-2.5 text-text-primary">Prison Management Database</h3>
+                        <div class="project-tech flex flex-wrap justify-center gap-2.5 mb-5">
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">MySQL</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">PHP</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">HTML</span>
+                            <span
+                                class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">CSS</span>
                         </div>
-                        <p>A MySQL and web based system for prison management with secure authentication and CRUD
+                        <p class="text-[0.95rem] mb-5 text-text-muted">A MySQL and web based system for prison
+                            management with secure authentication and CRUD
                             operations for managing prison resources.</p>
                         <a href="https://github.com/FaHaD1482/prison-management" target="_blank" class="btn">View
                             Source</a>
@@ -217,28 +399,39 @@
     <!-- Educational Qualifications Section -->
     <section id="education" class="section">
         <div class="container">
-            <h2>Education</h2>
-            <div class="education-grid">
-                <div class="education-card">
-                    <div class="project-tech">
-                        <span>2022 – 2025</span>
+            <h2 class="text-[2.5rem] mb-[50px] text-text-primary font-bold">Education</h2>
+            <div
+                class="education-grid max-w-[1000px] w-full mx-auto grid grid-cols-[repeat(auto-fit,minmax(300px,1fr))] gap-[25px]">
+                <div
+                    class="education-card bg-card border border-border p-[30px] rounded-xl transition-all duration-300 text-center hover:-translate-y-[5px] hover:border-accent">
+                    <div class="project-tech flex flex-wrap justify-center gap-2.5 mb-5">
+                        <span
+                            class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">2022
+                            – 2025</span>
                     </div>
-                    <h3>BSc in Computer Science and Engineering</h3>
-                    <p>American International University-Bangladesh (AIUB)</p>
+                    <h3 class="text-xl text-text-primary mb-[10px]">BSc in Computer Science and Engineering</h3>
+                    <p class="text-[0.95rem] text-text-secondary">American International University-Bangladesh (AIUB)
+                    </p>
                 </div>
-                <div class="education-card">
-                    <div class="project-tech">
-                        <span>Completed - 2020</span>
+                <div
+                    class="education-card bg-card border border-border p-[30px] rounded-xl transition-all duration-300 text-center hover:-translate-y-[5px] hover:border-accent">
+                    <div class="project-tech flex flex-wrap justify-center gap-2.5 mb-5">
+                        <span
+                            class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Completed
+                            - 2020</span>
                     </div>
-                    <h3>Higher Secondary Certificate (HSC)</h3>
-                    <p>BN College, Dhaka</p>
+                    <h3 class="text-xl text-text-primary mb-[10px]">Higher Secondary Certificate (HSC)</h3>
+                    <p class="text-[0.95rem] text-text-secondary">BN College, Dhaka</p>
                 </div>
-                <div class="education-card">
-                    <div class="project-tech">
-                        <span>Completed - 2018</span>
+                <div
+                    class="education-card bg-card border border-border p-[30px] rounded-xl transition-all duration-300 text-center hover:-translate-y-[5px] hover:border-accent">
+                    <div class="project-tech flex flex-wrap justify-center gap-2.5 mb-5">
+                        <span
+                            class="bg-sky-400/10 text-accent px-3 py-[5px] rounded-[20px] text-[0.85rem] font-medium border border-sky-400/20">Completed
+                            - 2018</span>
                     </div>
-                    <h3>Secondary School Certificate (SSC)</h3>
-                    <p>Adamjee Cantonment Public School, Dhaka</p>
+                    <h3 class="text-xl text-text-primary mb-[10px]">Secondary School Certificate (SSC)</h3>
+                    <p class="text-[0.95rem] text-text-secondary">Adamjee Cantonment Public School, Dhaka</p>
                 </div>
             </div>
         </div>
@@ -247,38 +440,50 @@
     <!-- Contact Me Form Section -->
     <section id="contact" class="section">
         <div class="container section-wrapper">
-            <h2>Contact Me</h2>
-            <form class="contact-form" action="https://formspree.io/f/mgoedkya" method="POST">
-                <div class="form-group">
-                    <label for="name">Name</label>
-                    <input type="text" id="name" name="name" required>
+            <h2 class="text-[2.5rem] mb-[50px] text-text-primary font-bold">Contact Me</h2>
+            <form class="contact-form max-w-[600px] mx-auto mb-10" action="https://formspree.io/f/mgoedkya"
+                method="POST">
+                <div class="form-group mb-[25px] text-left">
+                    <label for="name" class="block text-[0.95rem] mb-2 text-text-secondary font-medium">Name</label>
+                    <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-3 border border-border rounded-lg text-base bg-slate-900/40 text-text-primary transition-all duration-300 focus:border-accent focus:bg-slate-900/80 focus:outline-none focus:shadow-[0_0_0_2px_rgba(56,189,248,0.1)]">
                 </div>
-                <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="email" id="email" name="email" required>
+                <div class="form-group mb-[25px] text-left">
+                    <label for="email" class="block text-[0.95rem] mb-2 text-text-secondary font-medium">Email</label>
+                    <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-3 border border-border rounded-lg text-base bg-slate-900/40 text-text-primary transition-all duration-300 focus:border-accent focus:bg-slate-900/80 focus:outline-none focus:shadow-[0_0_0_2px_rgba(56,189,248,0.1)]">
                 </div>
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
+                <div class="form-group mb-[25px] text-left">
+                    <label for="message"
+                        class="block text-[0.95rem] mb-2 text-text-secondary font-medium">Message</label>
+                    <textarea id="message" name="message" rows="5" required
+                        class="w-full px-4 py-3 border border-border rounded-lg text-base bg-slate-900/40 text-text-primary transition-all duration-300 focus:border-accent focus:bg-slate-900/80 focus:outline-none focus:shadow-[0_0_0_2px_rgba(56,189,248,0.1)]"></textarea>
                 </div>
                 <button type="submit" class="btn">Send Message</button>
             </form>
             <div class="contact-info">
-                <p><i class="fas fa-envelope"></i> fahadbin.zislam@gmail.com</p>
-                <p><i class="fas fa-phone"></i> (+880) 1568177676</p>
-                <p><i class="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
+                <p class="text-[1.1rem] my-[15px] text-text-secondary"><i class="fas fa-envelope mr-3 text-accent"></i>
+                    fahadbin.zislam@gmail.com</p>
+                <p class="text-[1.1rem] my-[15px] text-text-secondary"><i class="fas fa-phone mr-3 text-accent"></i>
+                    (+880) 1568177676</p>
+                <p class="text-[1.1rem] my-[15px] text-text-secondary"><i
+                        class="fas fa-map-marker-alt mr-3 text-accent"></i> Dhaka, Bangladesh</p>
             </div>
-            <div class="social-links">
-                <a href="https://github.com/FaHaD1482/FaHaD1482" target="_blank" title="GitHub"><i
+            <div class="social-links mt-[30px] flex justify-center gap-[25px]">
+                <a href="https://github.com/FaHaD1482/FaHaD1482" target="_blank" title="GitHub"
+                    class="text-text-secondary text-[1.8rem] transition-all duration-300 hover:text-accent hover:scale-110"><i
                         class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/fahad-bin-z-islam-590332202/" target="_blank" title="LinkedIn"><i
+                <a href="https://www.linkedin.com/in/fahad-bin-z-islam-590332202/" target="_blank" title="LinkedIn"
+                    class="text-text-secondary text-[1.8rem] transition-all duration-300 hover:text-accent hover:scale-110"><i
                         class="fab fa-linkedin"></i></a>
-                <a href="https://x.com/AnonDhwale" target="_blank" title="Twitter/X"><i class="fab fa-twitter"></i></a>
+                <a href="https://x.com/AnonDhwale" target="_blank" title="Twitter/X"
+                    class="text-text-secondary text-[1.8rem] transition-all duration-300 hover:text-accent hover:scale-110"><i
+                        class="fab fa-twitter"></i></a>
             </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="bg-slate-950 text-text-muted text-center p-[30px] border-t border-border mt-[50px]">
         <p>© 2025 Fahad Bin Z Islam. All rights reserved.</p>
     </footer>
 
